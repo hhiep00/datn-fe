@@ -594,7 +594,11 @@ const Map1 = () => {
             console.log("data5-----------____----__---__---___--___---------");
             const vehicleData = {
               ...vehicle,
+              // camera: data[3],
+              latitude: data[1],
+              longitude: data[2],
               camera: data[3],
+              angle: angle
             }
             const vehiclesUpdate = [...vehicles.filter(item => item.id.toString() !== data[0].toString()), vehicleData];
             if (data[0]?.toString() === itemVehicle?.id?.toString()) {
@@ -804,7 +808,7 @@ const Map1 = () => {
     <Fragment>
       <Box sx={{ position: 'relative', with: '100%' }}>
         <Box sx={{ height: "calc(100vh - 64px - 5px)" }}>
-          <MapContainer center={[20.9809226,105.7871205]} zoom={19} style={{ height: "inherit" }} scrollWheelZoom={true}
+          <MapContainer center={[21.018685,105.776937]} zoom={19} style={{ height: "inherit" }} scrollWheelZoom={true}
           >
             <LayersControl position="topright">
               <LayersControl.BaseLayer checked name="Map Layer Default">

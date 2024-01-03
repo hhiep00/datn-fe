@@ -1,11 +1,12 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { BASE_URL, token } from '../../ultils/axiosApi';
+import { BASE_URL, NEW_BASE_URL, token } from '../../ultils/axiosApi';
 // reducer thunk
 
 // get all vehicles
 export const getVehiclesDataAsync = createAsyncThunk("vehicles/getAllVehicles", async () => {
-    const response = await axios.get("/vehicles", { headers: { token: token } });
+    const response = await axios.get(`${NEW_BASE_URL}/vehicle/list`, { headers: { token: token } });
+    // const response = await axios.get("/vehicles", { headers: { token: token } });
     return response.data.data;
 })
 // get vehicles validation
@@ -16,7 +17,7 @@ export const getVehiclesValidationDataAsync = createAsyncThunk("vehicles/validat
 
 // add | post vehicle
 export const postVehicleDataAsync = createAsyncThunk("vehicles/postvehicle", async (vehicle) => {
-    const response = await axios.post("/vehicles/add", vehicle, { headers: { token: token } })
+    const response = await axios.post(`${NEW_BASE_URL}/vehicle`, vehicle, { headers: { token: token } })
     console.log(response);
     return response.data.data;
 })
@@ -24,14 +25,14 @@ export const postVehicleDataAsync = createAsyncThunk("vehicles/postvehicle", asy
 // put vehicle
 export const putVehicleDataAsync = createAsyncThunk('vehicles/putVehicle', async (vehicle) => {
     const { formData, vehicleId } = vehicle;
-    const response = await axios.put(`/vehicles/edit/${vehicleId}`, formData, { headers: { token: token } });
+    const response = await axios.put(`${NEW_BASE_URL}/vehicle/${vehicleId}`, formData, { headers: { token: token } });
     console.log(response.data.data);
     return response.data.data;
 })
 
 // delete vehicle
 export const deleteVehicleDataAsync = createAsyncThunk('vehicles/deleteVehicle', async (vehicleId) => {
-    const response = await axios.delete(`/vehicles/delete/${vehicleId}`, { headers: { token: token } })
+    const response = await axios.delete(`${NEW_BASE_URL}/vehicle/${vehicleId}`, { headers: { token: token } })
     return response.data.data;
 })
 
@@ -47,7 +48,7 @@ export const getVehicleValidationData = async () => {
 }
 // get vehicle by id
 export const getVehicleDataById = async (vehicleId) => {
-    const response = await axios.get(`/vehicles/${vehicleId}`, { headers: { token: token } });
+    const response = await axios.get(`${NEW_BASE_URL}/vehicle/${vehicleId}`, { headers: { token: token } });
     return response.data.data;
 }
 

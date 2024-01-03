@@ -1,41 +1,41 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import axios from 'axios'
-import { BASE_URL, token } from '../../ultils/axiosApi';
+import { NEW_BASE_URL, BASE_URL, token } from '../../ultils/axiosApi';
 
 // get all bins
 export const getBinsDataAsync = createAsyncThunk('bins/getAllBins', async (companyId) => {
     let response = null;
     if (companyId === undefined || companyId === null) {
-        response = await axios.get('/bins', { headers: { token: token } });
+        response = await axios.get(`${NEW_BASE_URL}/bin/list`, { headers: { token: token } });
     } else {
-        response = await axios.get(`/bins?companyId=${companyId}`, { headers: { token: token } });
+        response = await axios.get(`${NEW_BASE_URL}/bin/list?companyId=${companyId}`, { headers: { token: token } });
     }
     return response.data.data;
 })
 
 // add | post bin
 export const postBinDataAsync = createAsyncThunk("bins/postBin", async (bin) => {
-    const response = await axios.post('/bins/add', bin, { headers: { token: token } });
+    const response = await axios.post(`${NEW_BASE_URL}/bin`, bin, { headers: { token: token } });
     return response.data.data;
 })
 
 // put bin
 export const putBinDataAsync = createAsyncThunk('bins/putBin', async (bin) => {
     const { formData, binId } = bin;
-    const response = await axios.put(`/bins/edit/${binId}`, formData, { headers: { token: token } });
+    const response = await axios.put(`${NEW_BASE_URL}/bin/${binId}`, formData, { headers: { token: token } });
     console.log(response.data.data);
     return response.data.data;
 })
 
 // delete bin
 export const deleteBinDataAsync = createAsyncThunk('bins/deleteBin', async (binId) => {
-    const response = await axios.delete(`/bins/delete/${binId}`, { headers: { token: token } })
+    const response = await axios.delete(`${NEW_BASE_URL}/bin/${binId}`, { headers: { token: token } })
     return response.data.data;
 })
 
 // get bin by id
 export const getBinDataById = async (id) => {
-    const response = await axios.get(`/bins/${id}`, { headers: { token: token } });
+    const response = await axios.get(`${NEW_BASE_URL}/bin/${id}`, { headers: { token: token } });
     return response.data.data;
 }
 

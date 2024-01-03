@@ -1,36 +1,36 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import {BASE_URL, token} from '../../ultils/axiosApi';
+import {BASE_URL, NEW_BASE_URL, token} from '../../ultils/axiosApi';
 
 // get all drivers
 export const getDriversDataAsync = createAsyncThunk("drivers/getAllDrivers", async () => {
-    const response = await axios.get("/users/drivers", { headers: { token: token } });
+    const response = await axios.get(`${NEW_BASE_URL}/user/list/driver`, { headers: { token: token } });
     return response.data.data;
 })
 
 // add | post driver
 export const postDriverDataAsync = createAsyncThunk("users/drivers/postDriver", async (driver) => {
-    const response = await axios.post('/users/drivers/add', driver, { headers: { token: token } });
+    const response = await axios.post(`${NEW_BASE_URL}/user/driver`, driver, { headers: { token: token } });
     return response.data.data;
 })
 
 // put driver
 export const putDriverDataAsync = createAsyncThunk('users/drivers/putDriver', async (driver) => {
     const { formData, driverId } = driver;
-    const response = await axios.put(`/users/drivers/edit/${driverId}`, formData, { headers: { token: token } });
+    const response = await axios.put(`${NEW_BASE_URL}/user/info/${driverId}`, formData, { headers: { token: token } });
     console.log(response.data.data);
     return response.data.data;
 })
 
 // delete driver
 export const deleteDriverDataAsync = createAsyncThunk('users/drivers/deleteDriver', async (driverId) => {
-    const response = await axios.delete(`/users/drivers/delete/${driverId}`, { headers: { token: token } })
+    const response = await axios.delete(`${NEW_BASE_URL}/user/${driverId}`, { headers: { token: token } })
     return response.data.data;
 })
 
 // get driver by id
 export const getDriverDataById = async (id) => {
-    const response = await axios.get(`/users/drivers/${id}`, { headers: { token: token } });
+    const response = await axios.get(`${NEW_BASE_URL}/user/${id}`, { headers: { token: token } });
     return response.data.data;
 }
 

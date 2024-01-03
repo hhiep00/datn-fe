@@ -1,36 +1,36 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import {BASE_URL, token} from '../../ultils/axiosApi';
+import {BASE_URL, NEW_BASE_URL, token} from '../../ultils/axiosApi';
 
 // get all companies
 export const getCompaniesDataAsync = createAsyncThunk("companies/getAllCompanies", async () => {
-    const response = await axios.get("/companies", { headers: { token: token } });
+    const response = await axios.get(`${NEW_BASE_URL}/companies/list`, { headers: { token: token } });
     return response.data.data;
 })
 
 // add | post company
 export const postCompanyDataAsync = createAsyncThunk("companies/postCompany", async (company) => {
-    const response = await axios.post('/companies/add', company, { headers: { token: token } });
+    const response = await axios.post(`${NEW_BASE_URL}/companies`, company, { headers: { token: token } });
     return response.data.data;
 })
 
 // put company
 export const putCompanyDataAsync = createAsyncThunk('companies/putCompany', async (company) => {
     const { formData, companyId } = company;
-    const response = await axios.put(`/companies/edit/${companyId}`, formData, { headers: { token: token } });
+    const response = await axios.put(`${NEW_BASE_URL}/companies/${companyId}`, formData, { headers: { token: token } });
     console.log(response.data.data);
     return response.data.data;
 })
 
 // delete company
 export const deleteCompanyDataAsync = createAsyncThunk('companies/deleteCompany', async (companyId) => {
-    const response = await axios.delete(`/companies/delete/${companyId}`, { headers: { token: token } })
+    const response = await axios.delete(`${NEW_BASE_URL}/companies/${companyId}`, { headers: { token: token } })
     return response.data.data;
 })
 
 // get company by id
 export const getCompanyDataById = async (id) => {
-    const response = await axios.get(`/companies/${id}`, { headers: { token: token } });
+    const response = await axios.get(`${NEW_BASE_URL}/companies/${id}`, { headers: { token: token } });
     return response.data.data;
 }
 

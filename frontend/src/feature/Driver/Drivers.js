@@ -44,7 +44,7 @@ const Drivers = () => {
   const columns = [
     { field: 'id', align: "center", headerAlign: "center", headerClassName: 'super-app-theme--header', headerName: `${t("drivers.table.id")}`, minWidth: 70, sortable: false, },
     {
-      field: 'fullname', headerClassName: 'super-app-theme--header', headerName: `${t("drivers.table.fullname")}`, minWidth: 160, flex: 1, sortable: true,
+      field: 'fullName', headerClassName: 'super-app-theme--header', headerName: `${t("drivers.table.fullName")}`, minWidth: 160, flex: 1, sortable: true,
       renderCell: (params) => (
         `${params.row.lastName} ${params.row.firstName}`
       )

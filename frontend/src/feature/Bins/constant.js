@@ -1,6 +1,6 @@
 export const getStatus = (status) => {
     switch (status) {
-        case "empty":
+        case "empty", "active":
             return "empty";
         case "mid":
             return "mid";

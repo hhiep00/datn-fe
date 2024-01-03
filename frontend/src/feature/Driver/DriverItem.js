@@ -158,7 +158,7 @@ const DriverItem = () => {
                                                 <ListItemIcon>
                                                     <BadgeIcon />
                                                 </ListItemIcon>
-                                                <ListItemText primary={t("drivers.table.fullname")} secondary={driver.lastName + " " + driver.firstName} />
+                                                <ListItemText primary={t("drivers.table.fullName")} secondary={driver.lastName + " " + driver.firstName} />
                                             </ListItem>
                                             <ListItem sx={{ height: 40 }}>
                                                 <ListItemIcon>

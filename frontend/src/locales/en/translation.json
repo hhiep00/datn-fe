@@ -111,7 +111,7 @@
         "table": {
             "id": "ID",
             "email": "Email",
-            "fullname": "Fullname",
+            "fullName": "Fullname",
             "firstName": "First Name",
             "lastName": "Last Name",
             "dob": "Date of birth",
@@ -144,7 +144,7 @@
         "table": {
             "id": "ID",
             "email": "Email",
-            "fullname": "Fullname",
+            "fullName": "Fullname",
             "firstName": "First Name",
             "name": "Company Name",
             "address": "Address",

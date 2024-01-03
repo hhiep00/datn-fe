@@ -111,7 +111,7 @@
         "table": {
             "id": "ID",
             "email": "Email",
-            "fullname": "Họ và tên",
+            "fullName": "Họ và tên",
             "firstName": "Tên",
             "lastName": "Họ Đệm",
             "dob": "Ngày sinh",
@@ -144,7 +144,7 @@
         "table": {
             "id": "ID",
             "email": "Email",
-            "fullname": "Họ và tên",
+            "fullName": "Họ và tên",
             "name": "Tên doanh nghiệp",
             "address": "Địa chỉ",
             "firstName": "Tên",

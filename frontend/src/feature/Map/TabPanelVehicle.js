@@ -332,7 +332,7 @@ export default function TabPanelVehicle({ open, handleClose, item, listRoutes })
                                         <ListItemIcon>
                                             <BadgeIcon />
                                         </ListItemIcon>
-                                        <ListItemText primary={t("drivers.table.fullname")} secondary={driver.firstName + " " + driver.lastName} />
+                                        <ListItemText primary={t("drivers.table.fullName")} secondary={driver.firstName + " " + driver.lastName} />
                                     </ListItem>
                                     <ListItem sx={{ width: 360, backgroundColor: '#f5f5f5', height: 40 }}>
                                         <ListItemIcon>
