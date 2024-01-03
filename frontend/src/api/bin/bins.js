@@ -1,5 +1,5 @@
 import axios from "axios"
-import { BASE_URL, token } from "../../ultils/axiosApi"
+import { BASE_URL, NEW_BASE_URL, token } from "../../ultils/axiosApi"
 
 export const bins = [
     {
@@ -117,7 +117,7 @@ export const bins = [
 export const getBinsData = async (companyId) => {
     let response = null;
     if (companyId === undefined || companyId === null) {
-        response = await axios.get("/bins", { headers: { token: token } });
+        response = await axios.get(`${NEW_BASE_URL}/bin/list`, { headers: { token: token } });
     } else {
         response = await axios.get(`/bins?companyId=${companyId}`, { headers: { token: token } });
     }
