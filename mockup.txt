@@ -1,0 +1,8 @@
+sign up:
+curl --location 'https://ede5-116-99-44-164.ngrok-free.app/auth/sign-up' \
+--header 'Content-Type: application/json' \
+--data '{
+    "phone": "111",
+    "email": "aaa",
+    "password": "1"
+}'
