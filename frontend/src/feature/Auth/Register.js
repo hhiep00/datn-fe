@@ -13,7 +13,7 @@ import { Stack } from "@mui/system";
 import { React, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { loginAsync } from "../../store/reducers/authSlice";
+import { registerAsync } from "../../store/reducers/authSlice";
 
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
@@ -24,7 +24,7 @@ import "leaflet/dist/leaflet.css";
 import { useTranslation } from "react-i18next";
 import LanguagePopover from "../../components/Header/LanguagePopover";
 
-const Login = () => {
+const Register = () => {
   const { t } = useTranslation();
 
   const dispatch = useDispatch();
@@ -32,6 +32,7 @@ const Login = () => {
   const [user, setUser] = useState({
     phone: "",
     password: "",
+    email: "",
   });
 
   const [showPassword, setShowPassword] = useState(false);
@@ -46,17 +47,12 @@ const Login = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    dispatch(loginAsync(user)).then((res) => {
+    dispatch(registerAsync(user)).then((res) => {
       console.log(res);
-      if (res.type === "auth/login/fulfilled") {
-        localStorage.setItem("user", JSON.stringify(res.payload));
-        localStorage.setItem("token", JSON.stringify(res.payload.accessToken));
-        window.location.reload();
+      if (res.type === "auth/register/fulfilled") {
+        navigate("/login");
       }
     });
-
-    // localStorage.setItem('user', JSON.stringify(user))
-    // navigate('/')
   };
 
   const onChange = (e) => {
@@ -160,6 +156,15 @@ const Login = () => {
             value={user.phone}
             onChange={onChange}
           />
+          <TextField
+            id="outlined-basic"
+            sx={{ width: "100%", mb: 2 }}
+            label={t("login.email")}
+            variant="outlined"
+            name="email"
+            value={user.email}
+            onChange={onChange}
+          />
           <FormControl sx={{ m: 1, width: "100%" }} variant="outlined">
             <InputLabel htmlFor="outlined-adornment-password">
               {t("login.password")}
@@ -204,7 +209,7 @@ const Login = () => {
             }}
             type="submit"
           >
-            {t("login.signIn")}
+            {t("login.signUp")}
           </Button>
           <Typography
             variant="body2"
@@ -221,7 +226,7 @@ const Login = () => {
               justifyContent: "flex-end",
             }}
           >
-            {t("login.fogotPassword")}
+            {t("login.readyHasAccount")}
           </Typography>
         </Box>
       </Stack>
@@ -229,4 +234,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;
