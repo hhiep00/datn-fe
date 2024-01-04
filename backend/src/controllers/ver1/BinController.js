@@ -12,10 +12,7 @@ const addNewBin = async (req, res) => {
         if (
             !newBinData.latitude ||
             !newBinData.longitude ||
-            !newBinData.maxWeight ||
-            !newBinData.camera1 ||
-            !newBinData.camera2 ||
-            !newBinData.camera3
+            !newBinData.maxWeight
         ) {
             return res.status(400).json({
                 resCode: 400,
@@ -110,10 +107,7 @@ const updateBinById = async (req, res) => {
         if (
             !newBinData.latitude ||
             !newBinData.longitude ||
-            !newBinData.maxWeight ||
-            !newBinData.camera1 ||
-            !newBinData.camera2 ||
-            !newBinData.camera3
+            !newBinData.maxWeight 
         ) {
             return res.status(400).json({
                 resCode: 400,
