@@ -10,8 +10,8 @@ export const loginAsync = createAsyncThunk("auth/login", async (user) => {
 });
 
 // register
-export const registerAsync = createAsyncThunk("auth/register", async (user) => {
-  const response = await axios.post(`${NEW_BASE_URL}/auth/register`, user);
+export const registerAsync = createAsyncThunk("auth/sign-up", async (user) => {
+  const response = await axios.post(`${NEW_BASE_URL}/auth/sign-up`, user);
   return response.data.data;
 });
 
@@ -63,7 +63,7 @@ const authSlice = createSlice({
     [registerAsync.fulfilled]: (state, action) => {
       state.isLoading = false;
       state.user = action.payload;
-      state.token = action.payload.accessToken;
+      // state.token = action.payload.accessToken;
       state.isAuth = true;
     },
     [registerAsync.rejected]: (state, action) => {

@@ -148,7 +148,8 @@ const DataTable = ({ rows, columns }) => {
             rows={rows}
             columns={columns}
             getRowId={(row) => {
-                return row.id;
+                console.log(row);
+                return row?.id;
             }}
             // onRowClick={handleRowClick}
             disableColumnMenu

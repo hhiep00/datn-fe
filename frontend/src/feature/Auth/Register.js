@@ -48,9 +48,10 @@ const Register = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     dispatch(registerAsync(user)).then((res) => {
-      console.log(res);
-      if (res.type === "auth/register/fulfilled") {
-        navigate("/login");
+      if (res.type === "auth/sign-up/fulfilled") {
+        // navigate("/login");
+        window.location.href = "http://localhost:2209/login"
+        return;
       }
     });
   };
