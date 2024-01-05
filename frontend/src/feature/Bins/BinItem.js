@@ -202,12 +202,12 @@ const BinItem = () => {
                                                 </ListItemIcon>
                                                 <ListItemText primary={t("bins.form.position")} secondary={bin.latitude.toFixed(6) + ', ' + bin.longitude.toFixed(6)} />
                                             </ListItem>
-                                            {/* <ListItem sx={{ backgroundColor: '#f5f5f5', height: 'max-content' }}>
+                                            <ListItem sx={{ backgroundColor: '#f5f5f5', height: 'max-content' }}>
                                                 <ListItemIcon>
                                                     <RoomIcon />
                                                 </ListItemIcon>
                                                 <ListItemText primary={t("bins.table.address")} className="ipcambin" secondary={bin.address} />
-                                            </ListItem> */}
+                                            </ListItem>
                                             <ListItem sx={{ height: 40 }}>
                                                 <ListItemIcon>
                                                     <HeightIcon />
@@ -255,24 +255,6 @@ const BinItem = () => {
                                                     <AutorenewIcon />
                                                 </ListItemIcon>
                                                 <ListItemText primary={t("bins.table.status")} secondary={`${t("bins.table." + bin.status)}`} />
-                                            </ListItem>
-                                            <ListItem sx={{ height: 'max-content' }}>
-                                                <ListItemIcon>
-                                                    <AutorenewIcon />
-                                                </ListItemIcon>
-                                                <ListItemText primary={"Camera 1"} className="ipcambin" secondary={`${bin.camera1}`} />
-                                            </ListItem>
-                                            <ListItem sx={{ backgroundColor: '#f5f5f5', height: 'max-content' }}>
-                                                <ListItemIcon>
-                                                    <AutorenewIcon />
-                                                </ListItemIcon>
-                                                <ListItemText primary={"Camera 2"} className="ipcambin" secondary={String(`${bin.camera2}`)} />
-                                            </ListItem>
-                                            <ListItem sx={{ height: 'max-content' }}>
-                                                <ListItemIcon>
-                                                    <AutorenewIcon />
-                                                </ListItemIcon>
-                                                <ListItemText primary={"Camera 3"} className="ipcambin" secondary={`${bin.camera3}`} />
                                             </ListItem>
                                         </List>
                                     </Box>

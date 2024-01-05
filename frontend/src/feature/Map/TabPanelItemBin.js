@@ -217,12 +217,12 @@ export default function TabPanelItemBin({ open, handleClose, item }) {
                                         </ListItemIcon>
                                         <ListItemText primary={t("bins.form.position")} secondary={item.latitude.toFixed(6) + ', ' + item.longitude.toFixed(6)} />
                                     </ListItem>
-                                    {/* <ListItem sx={{ width: 360, height: 40 }}>
+                                    <ListItem sx={{ width: 360, height: 40 }}>
                                         <ListItemIcon>
                                             <RoomIcon />
                                         </ListItemIcon>
                                         <ListItemText primary={t("bins.table.address")} secondary={item.address} />
-                                    </ListItem> */}
+                                    </ListItem>
                                     <ListItem sx={{ width: 360, backgroundColor: '#f5f5f5', height: 40 }}>
                                         <ListItemIcon>
                                             <HeightIcon />
@@ -293,63 +293,7 @@ export default function TabPanelItemBin({ open, handleClose, item }) {
                     <TabPanel value={value} index={4}>
                         <video id='video3' width={"1180px"} muted controls></video>
                     </TabPanel> */}
-                    <TabPanel value={value} index={1}>
-                        <ReactPlayer
-                            url={item.camera1}
-                            playing={true}
-                            volume={1}
-                            height="90vh"
-                            width="100%"
-                            controls={true}
-                            muted={true}
-                            config={{
-                                file: {
-                                    attributes: {
-                                        preload: "auto",
-                                    },
-                                },
-                            }}
-                            playsinline
-                        />
-                    </TabPanel>
-                    <TabPanel value={value} index={2}>
-                        <ReactPlayer
-                            url={item.camera2}
-                            playing={true}
-                            volume={1}
-                            height="90vh"
-                            width="100%"
-                            controls={true}
-                            muted={true}
-                            config={{
-                                file: {
-                                    attributes: {
-                                        preload: "auto",
-                                    },
-                                },
-                            }}
-                            playsinline
-                        />
-                    </TabPanel>
-                    <TabPanel value={value} index={3}>
-                        <ReactPlayer
-                            url={item.camera3}
-                            playing={true}
-                            volume={1}
-                            height="90vh"
-                            width="100%"
-                            controls={true}
-                            muted={true}
-                            config={{
-                                file: {
-                                    attributes: {
-                                        preload: "auto",
-                                    },
-                                },
-                            }}
-                            playsinline
-                        />
-                    </TabPanel>
+                   
                 </Box>
             </Box>
         );

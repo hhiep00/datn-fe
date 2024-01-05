@@ -38,9 +38,10 @@ export const deleteVehicleDataAsync = createAsyncThunk('vehicles/deleteVehicle',
 
 // get routes by vehicle id
 export const getRoutesByVehicleId = async (vehicleId) => {
-    const response = await axios.get(`/vehicles/routes/${vehicleId}`, { headers: { token: token } });
+    // const response = await axios.get(`/vehicles/routes/${vehicleId}`, { headers: { token: token } });
+    const response = await axios.get(`${NEW_BASE_URL}/vehicle/route/${vehicleId}`, { headers: { token: token } });
     return response.data.data;
-}
+} 
 // get vehicle validation
 export const getVehicleValidationData = async () => {
     const response = await axios.get(`/vehicles/validation`, { headers: { token: token } });
