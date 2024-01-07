@@ -60,7 +60,7 @@ const Bins = () => {
                 </div>
             }
         },
-        // { field: 'address', headerClassName: 'super-app-theme--header', headerName: `${t("bins.table.address")}`, flex: 1, minWidth: 200, sortable: false },
+        { field: 'address', headerClassName: 'super-app-theme--header', headerName: `${t("bins.table.address")}`, flex: 1, minWidth: 200, sortable: false },
         { field: 'latitude', align: "center", headerAlign: "center", headerClassName: 'super-app-theme--header', headerName: `${t("bins.table.latitude")}`, minWidth: 100, flex: 1, sortable: true },
         { field: 'longitude', align: "center", headerAlign: "center", headerClassName: 'super-app-theme--header', headerName: `${t("bins.table.longitude")}`, minWidth: 100, flex: 1, sortable: false },
         {
