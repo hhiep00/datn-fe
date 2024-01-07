@@ -215,7 +215,7 @@ export default function TabPanelItemBin({ open, handleClose, item }) {
                                         <ListItemIcon>
                                             <RoomIcon />
                                         </ListItemIcon>
-                                        <ListItemText primary={t("bins.form.position")} secondary={item.latitude.toFixed(6) + ', ' + item.longitude.toFixed(6)} />
+                                        <ListItemText primary={t("bins.form.position")} secondary={item.latitude + ', ' + item.longitude} />
                                     </ListItem>
                                     <ListItem sx={{ width: 360, height: 40 }}>
                                         <ListItemIcon>
