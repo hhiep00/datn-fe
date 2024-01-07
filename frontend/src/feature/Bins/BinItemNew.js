@@ -1,10 +1,10 @@
-import { Box, Breadcrumbs, Button, Link, Paper, Stack, Typography, TextField } from '@mui/material';
+import { Box, Breadcrumbs, Button, Link, Paper, Stack, Typography, TextField, Select, MenuItem, FormControl, InputLabel } from '@mui/material';
 import React, { useEffect, Fragment, useState } from 'react'
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 
 import AttachFileIcon from '@mui/icons-material/AttachFile';
 import SaveIcon from '@mui/icons-material/Save';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import {
     postBinDataAsync,
@@ -13,6 +13,7 @@ import {
 } from '../../store/reducers/binSlice';
 import { assetUrl } from '../../ultils/axiosApi';
 import { useTranslation } from 'react-i18next';
+import { companiesSelector, getCompaniesDataAsync } from '../../store/reducers/companySlice';
 
 const BinItemNew = ({ state }) => {
     const { t } = useTranslation();
@@ -20,6 +21,7 @@ const BinItemNew = ({ state }) => {
     const navigate = useNavigate();
     const location = useLocation();
     const params = useParams();
+    const companies = useSelector(companiesSelector);
     console.log("Params:", params);
     console.log("Location:", location);
 
@@ -35,6 +37,7 @@ const BinItemNew = ({ state }) => {
         {
             id: 0,
             companyId: "",
+            company: {},
             latitude: "",
             longitude: "",
             // address: "",
@@ -90,6 +93,11 @@ const BinItemNew = ({ state }) => {
         navigate("/bins");
     }
 
+    useEffect(() => {
+        dispatch(getCompaniesDataAsync());
+    }, [dispatch]);
+
+    console.log("binItem----------", binItem?.company?.[0]?.id);
     return (
         <Box>
             <Fragment>
@@ -130,8 +138,36 @@ const BinItemNew = ({ state }) => {
                                 <Typography variant="h6" component="h3" fontWeight='bold' gutterBottom>
                                     {t("bins.form.infomation")}
                                 </Typography>
-                                <TextField id="outlined-basic" label={t("bins.table.companyId")} variant="outlined" sx={{ width: '100%', mb: 2, mt: 1 }} value={binItem.companyId} onChange={handleInputChange} name="companyId" />
-                                <TextField id="outlined-basic" label={t("bins.table.address")} variant="outlined" sx={{ width: '100%', mb: 2, mt: 1 }} value={binItem.address} onChange={handleInputChange} name="address" />
+
+                                {((binItem?.company?.[0]?.id && state === "edit") || state === "new") &&
+                                    <FormControl fullWidth
+                                        sx={{
+                                            mb: 2,
+                                            mt: 1,
+                                            width: '100%'
+                                        }}
+                                    >
+                                        <InputLabel id="outlined-basic">{t("bins.table.companyId")}</InputLabel>
+                                        <Select
+                                            labelId="outlined-basic"
+                                            id="outlined-basic"
+                                            value={binItem.companyId || binItem?.company?.[0]?.id} onChange={handleInputChange}
+                                            name="height"
+                                            label={t("bins.table.companyId")}
+                                            defaultValue={binItem?.company?.[0]?.id}
+                                        >
+                                            {companies.map((item) => {
+                                                return (
+                                                    <MenuItem value={item?.id}>{item?.name}</MenuItem>
+
+                                                )
+                                            })}
+
+                                        </Select>
+                                    </FormControl>
+                                }
+                                {/* <TextField id="outlined-basic" label={t("bins.table.companyId")} variant="outlined" sx={{ width: '100%', mb: 2, mt: 1 }} value={binItem.companyId} onChange={handleInputChange} name="companyId" /> */}
+                                {/* <TextField id="outlined-basic" label={t("bins.table.address")} variant="outlined" sx={{ width: '100%', mb: 2, mt: 1 }} value={binItem.address} onChange={handleInputChange} name="address" /> */}
                                 <TextField id="outlined-basic" label={t("bins.table.height")} variant="outlined" sx={{ width: '100%', mb: 2, mt: 1 }} value={binItem.height} onChange={handleInputChange} name="height" />
                                 <TextField id="outlined-basic" label={t("bins.table.length")} variant="outlined" sx={{ width: '100%', mb: 2, mt: 1 }} value={binItem?.length} onChange={handleInputChange} name="length" />
                                 <TextField id="outlined-basic" label={t("bins.table.width")} variant="outlined" sx={{ width: '100%', mb: 2, mt: 1 }} value={binItem.width} onChange={handleInputChange} name="width" />
