@@ -19,7 +19,8 @@
     "driver": "Tài xế",
     "bin": "Điểm thu rác",
     "company": "Doanh ngiệp",
-    "alerts": "Cảnh báo"
+    "alerts": "Cảnh báo",
+    "task": "Task"
   },
   "search": "Tìm kiếm",
   "map": {
@@ -294,5 +295,22 @@
     "treeDataExpand": "mở rộng",
     "treeDataCollapse": "ẩn đi",
     "filterOperatorIsAnyOf": "Bất kỳ"
+  },
+  "tasks": {
+    "home": "Trang chủ",
+    "pageName": "Tasks",
+    "add": "Thêm task",
+    "create": "Thêm task mới",
+    "table": {
+      "id": "ID",
+      "driver": "Tài xế",
+      "vehicle": "Phương tiện",
+      "bins": "Điểm thu rác",
+      "description": "Mô tả",
+      "action": "Thao tác"
+    },
+    "form": {
+      "infomation": "Thông tin task"
+    }
   }
 }

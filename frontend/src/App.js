@@ -1,24 +1,23 @@
 import React from "react";
-// import Map from "./feature/Map/Map";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Layout from "./routes/Layout";
-import Map1 from "./feature/Map/Map1";
-import Dashboard from "./feature/Dashboard/Dashboard";
-import { Vehicles, VehicleItem, VehicleItemNew } from "./feature/Vehicles";
-import { Bins, BinItem, BinItemNew } from "./feature/Bins";
-
-import { Drivers, DriverItem, DriverItemNew } from "./feature/Driver";
-import { Companies, CompanyItem, CompanyItemNew } from "./feature/Companies";
-
-import { ValidVehicle } from "./feature/ValidVehicle";
-
-import Login from "./feature/Auth/Login";
-import Register from "./feature/Auth/Register";
-import { useSelector } from "react-redux";
-import { authSelector } from "./store/reducers/authSlice";
 import ProtectedRoutes from "./routes/ProtectedRoutes";
 import PublicRoutes from "./routes/PublicRoutes";
+
+import Dashboard from "./feature/Dashboard/Dashboard";
+import Map1 from "./feature/Map/Map1";
 import Map from "./feature/Map/Map";
+import { Vehicles, VehicleItem, VehicleItemNew } from "./feature/Vehicles";
+import { Bins, BinItem, BinItemNew } from "./feature/Bins";
+import { Drivers, DriverItem, DriverItemNew } from "./feature/Driver";
+import { Companies, CompanyItem, CompanyItemNew } from "./feature/Companies";
+import { ValidVehicle } from "./feature/ValidVehicle";
+import Login from "./feature/Auth/Login";
+import Register from "./feature/Auth/Register";
+import { TaskForm, Tasks } from "./feature/Tasks";
+
+// import { useSelector } from "react-redux";
+// import { authSelector } from "./store/reducers/authSlice";
 
 const App = () => {
   const useAuth = () => {
@@ -143,6 +142,11 @@ const App = () => {
 
           {(isAdmin() || isCompany()) && (
             <Route path="alerts" element={<ValidVehicle />} />
+          )}
+
+          {isAdmin() && <Route path="tasks" element={<Tasks />} />}
+          {isAdmin() && (
+            <Route path="tasks/add" element={<TaskForm state={"new"} />} />
           )}
 
           <Route path="*" element={<div>Not Found</div>} />

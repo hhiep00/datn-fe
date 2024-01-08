@@ -19,7 +19,8 @@
     "driver": "Driver",
     "bin": "Bin",
     "company": "Company",
-    "alerts": "Alerts"
+    "alerts": "Alerts",
+    "task": "Task"
   },
   "search": "Search",
   "map": {
@@ -294,5 +295,22 @@
     "treeDataExpand": "Expand",
     "treeDataCollapse": "Collapse",
     "filterOperatorIsAnyOf": "is any of"
+  },
+  "tasks": {
+    "home": "Home",
+    "pageName": "Tasks",
+    "add": "Add task",
+    "create": "Crete new task",
+    "table": {
+      "id": "ID",
+      "driver": "Driver",
+      "vehicle": "Vehicle",
+      "bins": "Bins",
+      "description": "Description",
+      "action": "Action"
+    },
+    "form": {
+      "infomation": "Infomation of task"
+    }
   }
 }
