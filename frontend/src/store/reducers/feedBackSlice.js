@@ -45,7 +45,6 @@ const feedBacksSlice = createSlice({
     },
     [postFeedBackDataAsync.fulfilled]: (state, action) => {
       console.log("success");
-      state.allFeedBacks.push(action.payload);
     },
     [postFeedBackDataAsync.rejected]: (state, action) => {
       console.log("error");
