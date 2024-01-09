@@ -20,7 +20,8 @@
     "bin": "Điểm thu rác",
     "company": "Doanh ngiệp",
     "alerts": "Cảnh báo",
-    "task": "Task"
+    "task": "Task",
+    "feedback": "Nhận xét"
   },
   "search": "Tìm kiếm",
   "map": {
@@ -307,10 +308,28 @@
       "vehicle": "Phương tiện",
       "bins": "Điểm thu rác",
       "description": "Mô tả",
-      "action": "Thao tác"
+      "action": "Thao tác",
+      "day": "Ngày tạo"
     },
     "form": {
       "infomation": "Thông tin task"
+    }
+  },
+  "feedbacks": {
+    "home": "Trang chủ",
+    "pageName": "Nhận xét",
+    "add": "Thêm nhận xét",
+    "create": "Tạo nhận xét",
+    "table": {
+      "id": "ID",
+      "creator": "Người tạo",
+      "rating": "Đánh giá",
+      "content": "Nội dung",
+      "action": "Thao Tác",
+      "createdAt": "Ngày tạo"
+    },
+    "form": {
+      "infomation": "Thông tin đánh giá"
     }
   }
 }

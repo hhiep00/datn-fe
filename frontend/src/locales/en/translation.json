@@ -20,7 +20,8 @@
     "bin": "Bin",
     "company": "Company",
     "alerts": "Alerts",
-    "task": "Task"
+    "task": "Task",
+    "feedback": "Feedback"
   },
   "search": "Search",
   "map": {
@@ -307,10 +308,28 @@
       "vehicle": "Vehicle",
       "bins": "Bins",
       "description": "Description",
-      "action": "Action"
+      "action": "Action",
+      "day": "Day"
     },
     "form": {
       "infomation": "Infomation of task"
+    }
+  },
+  "feedbacks": {
+    "home": "Home",
+    "pageName": "Feedbacks",
+    "add": "Add feedback",
+    "create": "Crete new feedback",
+    "table": {
+      "id": "ID",
+      "creator": "creator",
+      "rating": "rating",
+      "content": "content",
+      "action": "Action",
+      "createdAt": "CreatedAt"
+    },
+    "form": {
+      "infomation": "Infomation of feedback"
     }
   }
 }

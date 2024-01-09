@@ -7,6 +7,7 @@ import authReducer from "./reducers/authSlice";
 import notiReducer from "./reducers/notiSlice";
 import waypointsReducer from "./reducers/waypointSlice";
 import tasksReducer from "./reducers/taskSlice";
+import feedBacksReducer from "./reducers/feedBackSlice";
 
 const store = configureStore({
   reducer: {
@@ -18,6 +19,7 @@ const store = configureStore({
     notiReducer,
     waypointsReducer,
     tasksReducer,
+    feedBacksReducer,
   },
 });
 

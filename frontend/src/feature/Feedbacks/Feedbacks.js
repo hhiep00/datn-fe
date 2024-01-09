@@ -11,26 +11,23 @@ import {
   BoxStack,
 } from "../../components/Box/BoxContainer";
 import { DataTable } from "../../components/DataTable";
-import TaskAction from "./TaskAction";
 import { isAdmin } from "../Auth/Role";
 import {
-  getListTaskDataAsync,
-  tasksSelector,
-} from "../../store/reducers/taskSlice";
+  feedBacksSelector,
+  getListFeedBackDataAsync,
+} from "../../store/reducers/feedBackSlice";
 
-const Tasks = () => {
+const Feedbacks = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { t } = useTranslation();
-  const tasks = useSelector(tasksSelector);
+  const feedBacks = useSelector(feedBacksSelector);
 
   useEffect(() => {
-    dispatch(getListTaskDataAsync());
+    dispatch(getListFeedBackDataAsync());
   }, [dispatch]);
 
   const user = JSON.parse(localStorage.getItem("user"));
-
-  console.log(tasks);
 
   const columns = [
     {
@@ -38,66 +35,48 @@ const Tasks = () => {
       align: "center",
       headerAlign: "center",
       headerClassName: "super-app-theme--header",
-      headerName: `${t("tasks.table.id")}`,
+      headerName: `${t("feedbacks.table.id")}`,
       minWidth: 70,
       sortable: false,
     },
     {
-      field: "driverName",
+      field: "creatorName",
       headerClassName: "super-app-theme--header",
-      headerName: `${t("tasks.table.driver")}`,
+      headerName: `${t("feedbacks.table.creator")}`,
       flex: 1,
       minWidth: 200,
       sortable: false,
     },
     {
-      field: "vehiclePlate",
+      field: "rating",
       align: "center",
       headerAlign: "center",
       headerClassName: "super-app-theme--header",
-      headerName: `${t("tasks.table.vehicle")}`,
+      headerName: `${t("feedbacks.table.rating")}`,
       minWidth: 100,
       flex: 1,
       sortable: true,
     },
     {
-      field: "binIds",
+      field: "content",
       align: "center",
       headerAlign: "center",
       headerClassName: "super-app-theme--header",
-      headerName: `${t("tasks.table.bins")}`,
+      headerName: `${t("feedbacks.table.content")}`,
       minWidth: 100,
       flex: 1,
       sortable: false,
     },
     {
-      field: "description",
+      field: "createdAt",
       align: "center",
       headerAlign: "center",
       headerClassName: "super-app-theme--header",
-      headerName: `${t("tasks.table.description")}`,
+      headerName: `${t("feedbacks.table.createdAt")}`,
       minWidth: 100,
       sortable: true,
-    },
-    {
-      field: "day",
-      align: "center",
-      headerAlign: "center",
-      headerClassName: "super-app-theme--header",
-      headerName: `${t("tasks.table.day")}`,
-      minWidth: 100,
-      sortable: true,
-    },
-    {
-      field: "action",
-      align: "center",
-      headerAlign: "center",
-      headerClassName: "super-app-theme--header",
-      headerName: `${t("tasks.table.action")}`,
-      flex: 1,
-      minWidth: 150,
-      sortable: false,
-      renderCell: (params) => <TaskAction params={params} />,
+      renderCell: (props) =>
+        new Date(props.row?.createdAt).toUTCString()?.slice(0, 12),
     },
   ];
 
@@ -112,13 +91,13 @@ const Tasks = () => {
               fontWeight="bold"
               gutterBottom
             >
-              {t("tasks.pageName")}
+              {t("feedbacks.pageName")}
               <Breadcrumbs maxItems={2} aria-label="breadcrumb" sx={{ mt: 1 }}>
                 <Link underline="hover" color="inherit" href="">
-                  {t("tasks.home")}
+                  {t("feedbacks.home")}
                 </Link>
                 <Typography color="text.primary">
-                  {t("tasks.pageName")}
+                  {t("feedbacks.pageName")}
                 </Typography>
               </Breadcrumbs>
             </Typography>
@@ -127,17 +106,17 @@ const Tasks = () => {
               <Button
                 variant="contained"
                 startIcon={<AddIcon />}
-                onClick={() => navigate("/tasks/add")}
+                onClick={() => navigate("/feedbacks/add")}
               >
-                {t("tasks.add")}
+                {t("feedbacks.add")}
               </Button>
             )}
           </BoxStack>
-          <DataTable rows={tasks} columns={columns} />
+          <DataTable rows={feedBacks} columns={columns} />
         </BoxTitle>
       </BoxContainer>
     </Fragment>
   );
 };
 
-export default Tasks;
+export default Feedbacks;

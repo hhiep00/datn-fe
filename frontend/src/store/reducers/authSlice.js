@@ -42,7 +42,7 @@ const authSlice = createSlice({
     },
     [loginAsync.fulfilled]: (state, action) => {
       console.log("success");
-      console.log(action.payload);
+      console.log("state-------------", state);
       state.isLoading = false;
       state.user = action.payload;
       state.token = action.payload.accessToken;

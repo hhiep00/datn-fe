@@ -1,5 +1,5 @@
 import React, { useEffect, Fragment, useState } from "react";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import {
@@ -34,19 +34,11 @@ import {
 const TaskForm = ({ state }) => {
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const params = useParams();
   const drivers = useSelector(driversSelector);
   const vehicles = useSelector(vehiclesSelector);
   const bins = useSelector(binsSelector);
 
-  let [click, setClick] = useState(false);
-
-  const handleClick = (e) => {
-    setClick(true);
-  };
-
   const [taskItem, setTaskItem] = useState({
-    id: 0,
     driverId: "",
     vehicleId: "",
     listBinId: [],
@@ -57,40 +49,16 @@ const TaskForm = ({ state }) => {
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    console.log(name, value);
-    if (name === "listBinId ") {
-      setTaskItem({ ...taskItem, listBinId: value.split(",") });
-      return;
-    }
     setTaskItem({ ...taskItem, [name]: value });
   };
 
   const handleSave = (event) => {
     event.preventDefault();
-    const formTask = document.getElementById("formTask");
-    const formData = new FormData(formTask);
-    dispatch(postTaskDataAsync(formData));
-    navigate("/tasks");
-  };
-
-  const getListData = async () => {
-    const dispatchPromises = [
-      dispatch(getVehiclesAvailableDataAsync()),
-      dispatch(getDriversAvailableDataAsync()),
-      dispatch(getBinsAvailableDataAsync()),
-    ];
-
-    return Promise.all(dispatchPromises)
-      .then(() => {
-        console.log("Tất cả các actions đã được dispatch.");
-      })
-      .catch((error) => {
-        console.error("Đã xảy ra lỗi khi dispatch actions:", error);
-      });
+    dispatch(postTaskDataAsync(taskItem));
+    navigate("/feedbacks");
   };
 
   useEffect(() => {
-    // getListData();
     dispatch(getVehiclesAvailableDataAsync());
     dispatch(getDriversAvailableDataAsync());
     dispatch(getBinsAvailableDataAsync());
@@ -236,6 +204,7 @@ const TaskForm = ({ state }) => {
                       name="listBinId"
                       label={t("tasks.table.bins")}
                       multiple
+                      value={taskItem.listBinId}
                     >
                       {bins.map((item) => {
                         return (
@@ -255,18 +224,18 @@ const TaskForm = ({ state }) => {
                   name="description"
                 />
               </Box>
+              <Box sx={{ width: "20%", my: 1 }}>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  endIcon={<SaveIcon />}
+                  sx={{ width: "100%", mb: 2, mt: 1, py: 1.5 }}
+                  type="submit"
+                >
+                  {t("vehicles.form.save")}
+                </Button>
+              </Box>
             </Paper>
-            <Box sx={{ width: "100%", my: 1 }}>
-              <Button
-                variant="contained"
-                color="primary"
-                endIcon={<SaveIcon />}
-                sx={{ width: "100%", mb: 2, mt: 1, py: 1.5 }}
-                type="submit"
-              >
-                {t("vehicles.form.save")}
-              </Button>
-            </Box>
           </Stack>
         </Box>
       </Fragment>

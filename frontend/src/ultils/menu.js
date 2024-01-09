@@ -7,6 +7,8 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import ReportGmailerrorredIcon from "@mui/icons-material/ReportGmailerrorred";
 import SupervisorAccountIcon from "@mui/icons-material/SupervisorAccount";
 import AddTaskIcon from "@mui/icons-material/AddTask";
+import FeedbackIcon from "@mui/icons-material/Feedback";
+
 export const listMenu = [
   {
     id: 0,
@@ -55,5 +57,11 @@ export const listMenu = [
     link: "/tasks",
     icon: <AddTaskIcon />,
     text: "sidebar.task",
+  },
+  {
+    id: 8,
+    link: "/feedbacks",
+    icon: <FeedbackIcon />,
+    text: "sidebar.feedback",
   },
 ];

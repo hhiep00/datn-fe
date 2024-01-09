@@ -15,6 +15,7 @@ import { ValidVehicle } from "./feature/ValidVehicle";
 import Login from "./feature/Auth/Login";
 import Register from "./feature/Auth/Register";
 import { TaskForm, Tasks } from "./feature/Tasks";
+import { FeedbackForm, Feedbacks } from "./feature/Feedbacks";
 
 // import { useSelector } from "react-redux";
 // import { authSelector } from "./store/reducers/authSlice";
@@ -147,6 +148,14 @@ const App = () => {
           {isAdmin() && <Route path="tasks" element={<Tasks />} />}
           {isAdmin() && (
             <Route path="tasks/add" element={<TaskForm state={"new"} />} />
+          )}
+
+          {isAdmin() && <Route path="feedbacks" element={<Feedbacks />} />}
+          {isAdmin() && (
+            <Route
+              path="feedbacks/add"
+              element={<FeedbackForm state={"new"} />}
+            />
           )}
 
           <Route path="*" element={<div>Not Found</div>} />
