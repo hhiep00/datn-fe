@@ -1,19 +1,19 @@
 import { Box, Typography } from '@mui/material'
 import { React, useState, useEffect } from 'react';
-import { getBinStateLog } from '../../store/reducers/binSlice';
+// import { getBinStateLog } from '../../store/reducers/binSlice';
 import { DataGrid } from '@mui/x-data-grid';
 import { useTranslation } from 'react-i18next';
 
 const BinStateLog = ({ binId }) => {
     const {t} = useTranslation();
-    const [binStateLog, setBinStateLog] = useState([]);
+    // const [binStateLog, setBinStateLog] = useState([]);
 
-    useEffect(() => {
-        getBinStateLog(binId).then((data) => {
-            setBinStateLog(data);
-            console.log(data);
-        });
-    }, []);
+    // useEffect(() => {
+    //     getBinStateLog(binId).then((data) => {
+    //         setBinStateLog(data);
+    //         console.log(data);
+    //     });
+    // }, []);
 
     const columns = [
         { field: 'id', align: "center", headerAlign: "center", headerClassName: 'super-app-theme--header', headerName: 'ID', minWidth: 70, sortable: false, },
@@ -26,7 +26,7 @@ const BinStateLog = ({ binId }) => {
                     <Typography sx={{ fontSize: "0.875rem" }}>
                         {date}
                     </Typography>
-                );
+                ); 
             }
         },
         { field: 'latitude', align: "center", headerAlign: "center", headerClassName: 'super-app-theme--header', headerName: `${t("tableLog.latitude")}`, minWidth: 150, flex: 1, sortable: false },
@@ -38,21 +38,12 @@ const BinStateLog = ({ binId }) => {
         <Box sx={{ width: '100%', height: 400, mt: 4 }}>
             <Box sx={{ textAlign: 'start', mb: 1, mt: 4 }}>
                 <Typography variant="h6" component="div" sx={{ fontSize: '1.2rem', fontWeight: 'bold', color: '#000', }}>
-                    {t("bins.binStateLog")}
+                 
                 </Typography>
 
             </Box>
             <Box sx={{ width: '100%', height: 400, mb: 2 }}>
-                <DataGrid
-                    rows={binStateLog} columns={columns}
-                    disableColumnMenu
-                    disableColumnSelector
-                    disableSelectionOnClick
-                    hideFooter
-                    autoHeight
-                    pageSize={10}
-                    rowsPerPageOptions={[10]}
-                />
+               
             </Box>
         </Box>
     )

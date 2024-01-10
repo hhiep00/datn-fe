@@ -1,6 +1,6 @@
 import { Box, Typography } from '@mui/material'
 import { React, useState, useEffect } from 'react';
-import { getAllBinStateLog } from '../../store/reducers/binSlice';
+// import { getAllBinStateLog } from '../../store/reducers/binSlice';
 import { DataGrid } from '@mui/x-data-grid';
 import { useTranslation } from 'react-i18next';
 
@@ -8,12 +8,12 @@ const DataBinEvent = () => {
     const {t} = useTranslation();
     const [binEvent, setBinEvent] = useState([]);
 
-    useEffect(() => {
-        getAllBinStateLog().then((data) => {
-            setBinEvent(data);
-            console.log(data);
-        });
-    }, []);
+    // useEffect(() => {
+    //     getAllBinStateLog().then((data) => {
+    //        setBinEvent(data);
+    //         console.log(data);
+    //     });
+    // }, []); 
 
     const columns = [
         { field: 'id', align: "center", headerAlign: "center", headerClassName: 'super-app-theme--header', headerName: 'ID', minWidth: 70, sortable: false, },

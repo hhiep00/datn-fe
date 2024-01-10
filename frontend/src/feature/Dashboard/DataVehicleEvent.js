@@ -1,6 +1,6 @@
 import { Box, Typography } from '@mui/material'
 import { React, useState, useEffect } from 'react';
-import { getAllVehicleStateLog } from '../../store/reducers/vehicleSlice';
+// import { getAllVehicleStateLog } from '../../store/reducers/vehicleSlice';
 import {
     DataGrid
 } from '@mui/x-data-grid';
@@ -13,12 +13,12 @@ const DataVehicleEvent = () => {
     const {t} = useTranslation();
     const [vehicleEvent, setVehicleEvent] = useState([]);
 
-    useEffect(() => {
-        getAllVehicleStateLog().then((data) => {
-            setVehicleEvent(data);
-            console.log(data);
-        });
-    }, []);
+    // useEffect(() => {
+    //     getAllVehicleStateLog().then((data) => {
+    //         setVehicleEvent(data);
+    //         console.log(data);
+    //     });
+    // }, []);
 
     const columns = [
         { field: 'id', align: "center", headerAlign: "center", headerClassName: 'super-app-theme--header', headerName: `${t("tableLog.id")}`, minWidth: 70, sortable: false, },

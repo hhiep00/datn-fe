@@ -92,20 +92,20 @@ export const getResetBinWeightAsync = createAsyncThunk(
 );
 
 // get bin state log limit 10
-export const getBinStateLog = async (binId) => {
-  const response = await axios.get(`/bins/states/recent/${binId}`, {
-    headers: { token: token },
-  });
-  return response.data.data;
-};
+// export const getBinStateLog = async (binId) => {
+//   const response = await axios.get(`/bins/states/recent/${binId}`, {
+//     headers: { token: token },
+//   });
+//   return response.data.data;
+// };
 
 // get all bin state log
-export const getAllBinStateLog = async () => {
-  const response = await axios.get(`/bins/states`, {
-    headers: { token: token },
-  });
-  return response.data.data;
-};
+// export const getAllBinStateLog = async () => {
+//   const response = await axios.get(`/bins/states`, {
+//     headers: { token: token },
+//   });
+//   return response.data.data;
+// };
 
 const binSlice = createSlice({
   name: "bins",

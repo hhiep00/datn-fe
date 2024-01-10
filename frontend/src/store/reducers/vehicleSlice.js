@@ -103,20 +103,20 @@ export const getVehicleDataById = async (vehicleId) => {
 };
 
 // get vehicle state log limit 10
-export const getVehicleStateLog = async (vehicleId) => {
-  const response = await axios.get(`/vehicles/states/recent/${vehicleId}`, {
-    headers: { token: token },
-  });
-  return response.data.data;
-};
+// export const getVehicleStateLog = async (vehicleId) => {
+//   const response = await axios.get(`/vehicles/states/recent/${vehicleId}`, {
+//     headers: { token: token },
+//   });
+//   return response.data.data;
+// };
 
 // get all vehicle state log
-export const getAllVehicleStateLog = async () => {
-  const response = await axios.get(`/vehicles/states`, {
-    headers: { token: token },
-  });
-  return response.data.data;
-};
+// export const getAllVehicleStateLog = async () => {
+//   const response = await axios.get(`/vehicles/states`, {
+//     headers: { token: token },
+//   });
+//   return response.data.data;
+// };
 
 const vehicleSlice = createSlice({
   // createReducer + createActions

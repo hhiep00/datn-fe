@@ -19,8 +19,8 @@ import StraightenIcon from '@mui/icons-material/Straighten';
 import { DataGrid } from '@mui/x-data-grid';
 import { assetUrl } from '../../ultils/axiosApi';
 import { useState } from 'react';
-import { getVehicleDataById, getVehicleStateLog } from '../../store/reducers/vehicleSlice';
-import VehicleStateLog from './VehicleStateLog';
+import { getVehicleDataById } from '../../store/reducers/vehicleSlice';
+// import VehicleStateLog from './VehicleStateLog';
 import { useTranslation } from 'react-i18next';
 import { isAdmin } from "../Auth/Role"
 
