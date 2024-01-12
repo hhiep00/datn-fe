@@ -808,7 +808,7 @@ const Map1 = () => {
     <Fragment>
       <Box sx={{ position: 'relative', with: '100%' }}>
         <Box sx={{ height: "calc(100vh - 64px - 5px)" }}>
-          <MapContainer center={[21.018685,105.776937]} zoom={19} style={{ height: "inherit" }} scrollWheelZoom={true}
+          <MapContainer center={[21.018685,105.776937]} zoom={15} style={{ height: "inherit" }} scrollWheelZoom={true}
           >
             <LayersControl position="topright">
               <LayersControl.BaseLayer checked name="Map Layer Default">
