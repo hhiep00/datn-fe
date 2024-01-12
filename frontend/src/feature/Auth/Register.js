@@ -50,7 +50,7 @@ const Register = () => {
     dispatch(registerAsync(user)).then((res) => {
       if (res.type === "auth/sign-up/fulfilled") {
         // navigate("/login");
-        window.location.href = "http://localhost:2209/login"
+        window.location.href = "http://localhost:3000/login"
         return;
       }
     });
